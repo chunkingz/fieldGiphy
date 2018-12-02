@@ -7,13 +7,20 @@
 # Implemented Features
 - Users/Visitors can search for a gif of their choice
 
+#UI templates
+This projects ui templates can be found [here on heroku] (https://field-giphy.herokuapp.com/search)
 
 # Project Management
 This project is managed on [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2229291)
 
 # Dependencies
-- Babel
-- Axios
+- Express [node js framework]
+- Babel [javascript compiler]
+- Axios [promise based http client]
+- Body parser [parses requests from the html code]
+- dotenv [environment variables]
+- dust [templating engine]
+- chai & mocha [tests]
 
 # Developer
 Fortune King :bowtie:
