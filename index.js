@@ -15,7 +15,7 @@ require('dotenv').config();
 const app = express();
 app.engine('dust', consolidate.dust);
 app.set('view engine', 'dust');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 
 // parse incoming requests with middleware
 app.use(bodyParser.json());
