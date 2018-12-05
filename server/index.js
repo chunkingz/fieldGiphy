@@ -15,18 +15,18 @@ require('dotenv').config();
 const app = express();
 app.engine('dust', consolidate.dust);
 app.set('view engine', 'dust');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, 'views'));
 
 // parse incoming requests with middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.status(200).send('<h2>Welcome to the field Giphy app</h2>'));
 
-app.get('/search/', (req, res) => res.render('index'));
+app.get('/search', (req, res) => res.render('index'));
 
 
 const url = 'api.giphy.com/v1/gifs/search';
