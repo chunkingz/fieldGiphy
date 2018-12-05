@@ -1,0 +1,52 @@
+{> "layout" /}
+
+{<body}
+<div class="container">
+        <h1>Welcome to field-Giphy...</h1>
+        <small class="text-warning">Worlds number 1 search engine for Gif's</small>
+    
+        <br>
+        <br>
+    
+        <div class="tab-content">
+            <!-- <SEARCH> -->
+                <form method="post" action="/search">
+                    <div class="form-group">
+                        <br><br>
+                        <input class="form-control" name="search" type="text" placeholder="Search Giphy...">
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Search">
+                    </div>
+                </form>
+                <br><br>
+                <div>
+                    {#gifs}
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    Gif
+                                </h2>
+                            </div>
+                            <div class="panel-body">
+                                <h4>
+                                    <fa style="color:rgb(241, 76, 76)" name="bars"></fa> Preview: <br>
+                                    <span> <img src="{images.fixed_height_small.url}" alt="image preview loader"> </span>
+                                </h4>
+                                <h4>
+                                    <fa style="color:rgb(128, 190, 128)" name="magnet"></fa> Title:
+                                    <span> {title}</span>
+                                </h4>
+                                <h4>
+                                    <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Embed url:
+                                    <span> <a href="{embed_url}" target="_blank">Embed url</a> </span>
+                                </h4>
+                            </div>
+                        </div>
+                    {/gifs}
+                </div>
+            <!-- </search> -->
+    
+        </div>
+    
+    </div>
+{/body}

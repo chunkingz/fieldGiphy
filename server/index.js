@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.status(200).send('<h2>Welcome to the field Giphy app</h2>'));
 
-app.get('/search/', (req, res) => res.render('index'));
+app.get('/search', (req, res) => res.render('index'));
 
 
 const url = 'api.giphy.com/v1/gifs/search';

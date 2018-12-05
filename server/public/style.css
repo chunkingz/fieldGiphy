@@ -1,0 +1,9 @@
+.form-div{
+    margin: 50px 10%;
+}
+input {
+    border: 2px solid #f39b9b;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 10px;
+}

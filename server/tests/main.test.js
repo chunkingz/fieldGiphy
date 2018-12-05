@@ -24,7 +24,7 @@ describe('General Routes Test Suite', () => {
     });
   });
 
-  describe('GET the root', () => {
+  describe('GET the search', () => {
     it('should get the search page', (done) => {
       chai.request(app)
         .get('/search')
@@ -32,7 +32,7 @@ describe('General Routes Test Suite', () => {
           expect(response.status).to.equal(200);
           expect(response.body).to.be.an('object');
           done();
-        });
+        }).catch(err => console.log(err));
     });
   });
 

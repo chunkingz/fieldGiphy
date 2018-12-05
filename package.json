@@ -4,8 +4,11 @@
   "description": "The worlds number 1 search engine for gifs",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
-    "dev": "nodemon index.js --exec babel-node",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel ./server -d ./build --copy-files server",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon server/index.js --exec babel-node",
     "lint": "eslint ./ --fix",
     "test": "nyc mocha ./server/tests/* --compilers js:babel-core/register --exit",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
@@ -13,6 +16,7 @@
   "keywords": [],
   "author": "Fortune King",
   "license": "ISC",
+  "repository": "fieldGiphy",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
@@ -24,15 +28,15 @@
     "dust": "^0.3.0",
     "dustjs-helpers": "^1.7.4",
     "dustjs-linkedin": "^2.7.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "babel-preset-env": "^1.7.0",
+    "@babel/preset-env": "^7.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "codeclimate-test-reporter": "^0.5.0",
