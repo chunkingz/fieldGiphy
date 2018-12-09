@@ -7,9 +7,11 @@
 # Implemented Features
 - Users/Visitors can search for a gif of their choice
 
-
 # Project Management
 This project is managed on [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2229291)
+
+# Bugs/Issues
+You can view bugs/issues [here]("https://github.com/chunkingz/fieldGiphy/issues")
 
 # Dependencies
 - Babel

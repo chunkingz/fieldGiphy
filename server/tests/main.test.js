@@ -3,7 +3,8 @@
 
 import chai from 'chai';
 import { describe, it } from 'mocha';
-import app from '../../index';
+import Axios from 'axios';
+import app from '../index';
 
 require('dotenv').config();
 
@@ -11,55 +12,54 @@ const expect = chai.expect;
 
 chai.use(require('chai-http'));
 
+// const searchTerm = req.body.search;
+// if (searchTerm.length < 1 || searchTerm.replace(/[^a-zA-Z0-9]/g, '') === '');
+
+// const emptySearch = /[^a-zA-Z0-9]/g;
+const emptySearch = '';
+
 describe('General Routes Test Suite', () => {
-  describe('GET the root', () => {
-    it('should get the root welcome page', (done) => {
-      chai.request(app)
-        .get('/')
-        .end((error, response) => {
-          expect(response.status).to.equal(200);
-          expect(response.body).to.be.an('object');
-          done();
-        });
+  describe('GET /', () => {
+    it('should get the root welcome page', async () => {
+      const res = await chai.request(app)
+        .get('/');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
     });
   });
 
-  describe('GET the root', () => {
-    it('should get the search page', (done) => {
-      chai.request(app)
-        .get('/search')
-        .end((error, response) => {
-          expect(response.status).to.equal(200);
-          expect(response.body).to.be.an('object');
-          done();
-        });
+  describe('GET /search', () => {
+    it('should get the search page', async () => {
+      const res = await chai.request(app)
+        .get('/search');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
     });
   });
 
-  describe('GET the Giphy api', () => {
-    it('should search via the Giphy api', (done) => {
-      chai.request(app)
-        .get(`http://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=eminem&limit=1`)
-        .then((res) => {
-          expect(res.status).to.equal(200);
-          expect(res.body).to.be.an('object');
-          expect(res.render).to.be.an('object');
-          done();
-        }, (err) => {
-          console.log(err);
-          done();
-        });
+  describe('POST /search', () => {
+    it('should not search if input is empty', async () => {
+      const res = await chai.request(app)
+        .post('/search')
+        .set('content-type', 'application/json')
+        .send(emptySearch);
+      expect(res.status).to.equal(500);
+    });
+  });
+
+  describe('POST https://api.giphy.com/v1/gifs/search', () => {
+    it('should search via the Giphy api', async () => {
+      // const res = await chai.request(app);
+      const res = await Axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=eminem&limit=1`);
+      expect(res.status).to.equal(200);
     });
   });
 
   describe('GET the unknown routes', () => {
-    it('should return 404', (done) => {
-      chai.request(app)
-        .get('/awRFr')
-        .end((error, response) => {
-          expect(response.status).to.equal(404);
-          done();
-        });
+    it('should return 404', async () => {
+      const res = await chai.request(app)
+        .get('/awRFr');
+      expect(res.status).to.equal(404);
     });
   });
 });
