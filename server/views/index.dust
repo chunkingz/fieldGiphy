@@ -37,8 +37,13 @@
                                     <span> {title}</span>
                                 </h4>
                                 <h4>
-                                    <fa style="color:rgb(241, 76, 76)" name="archive"></fa> Embed url:
-                                    <span> <a href="{embed_url}" target="_blank">Embed url</a> </span>
+                                    <fa style="color:rgb(241, 76, 76)" name="archive"></fa> 
+                                    <div class="col-xs-6">
+                                    <input class="form-control" type="text" name="" id="copyURL" value="{embed_url}">
+                                    <br>
+                                    <span> <button class="btn btn-primary" onclick="copy()">Copy embed url</button> </span>
+                                    </div>
+                                    
                                 </h4>
                             </div>
                         </div>

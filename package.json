@@ -4,18 +4,38 @@
   "description": "The worlds number 1 search engine for gifs",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
-    "dev": "nodemon index.js --exec babel-node",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel ./server -d ./build --copy-files server",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon server/index.js --exec babel-node",
     "lint": "eslint ./ --fix",
-    "test": "nyc mocha ./server/tests/* --compilers js:babel-core/register --exit",
+    "test": "nyc mocha --timeout 10000 ./server/tests/* --compilers js:babel-core/register --exit",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
-  "keywords": [],
+  "keywords": [
+    "gif",
+    "field",
+    "tweet",
+    "search for gifs",
+    "copy gif for tweet"
+  ],
   "author": "Fortune King",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chunkingz/fieldGiphy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chunkingz/fieldGiphy/issues"
+  },
   "dependencies": {
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "consolidate": "^0.15.1",
     "dotenv": "^6.1.0",
@@ -26,13 +46,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
-    "@babel/node": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "codeclimate-test-reporter": "^0.5.0",
