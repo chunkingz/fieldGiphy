@@ -1,6 +1,6 @@
-# field-Giphy...
+# field-Giphy
 
-# Build status
+# Build status (Travis-ci & Coveralls)
 [![Build Status](https://travis-ci.com/chunkingz/fieldGiphy.svg?branch=develop)](https://travis-ci.com/chunkingz/fieldGiphy)
 [![Coverage Status](https://coveralls.io/repos/github/chunkingz/fieldGiphy/badge.svg?branch=master)](https://coveralls.io/github/chunkingz/fieldGiphy?branch=master)
 
