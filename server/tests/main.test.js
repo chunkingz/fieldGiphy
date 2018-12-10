@@ -3,7 +3,7 @@
 
 import chai from 'chai';
 import { describe, it } from 'mocha';
-import Axios from 'axios';
+// import Axios from 'axios';
 import app from '../index';
 
 require('dotenv').config();
@@ -12,10 +12,6 @@ const expect = chai.expect;
 
 chai.use(require('chai-http'));
 
-// const searchTerm = req.body.search;
-// if (searchTerm.length < 1 || searchTerm.replace(/[^a-zA-Z0-9]/g, '') === '');
-
-// const emptySearch = /[^a-zA-Z0-9]/g;
 const emptySearch = '';
 
 describe('General Routes Test Suite', () => {
@@ -44,16 +40,17 @@ describe('General Routes Test Suite', () => {
         .set('content-type', 'application/json')
         .send(emptySearch);
       expect(res.status).to.equal(500);
+      console.log(emptySearch.length);
     });
   });
 
-  describe('POST https://api.giphy.com/v1/gifs/search', () => {
+  /* describe('POST https://api.giphy.com/v1/gifs/search', () => {
     it('should search via the Giphy api', async () => {
       // const res = await chai.request(app);
       const res = await Axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=eminem&limit=1`);
       expect(res.status).to.equal(200);
     });
-  });
+  }); */
 
   describe('GET the unknown routes', () => {
     it('should return 404', async () => {

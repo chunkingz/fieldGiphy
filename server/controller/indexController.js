@@ -10,7 +10,8 @@ class indexController {
      *
      */
   getRoot(req, res) {
-    return res.status(200).send('<h2>Welcome to the field Giphy app</h2>');
+    return res.status(200)
+      .send('<h2 style="color:blue;">Welcome to the field Giphy app</h2><br><p><a href="/search">visit the Search page here</a></p>');
   }
 }
 
