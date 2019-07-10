@@ -1,8 +1,8 @@
 # field-Giphy
 
-# Build status (Travis-ci & Coveralls)
+## Build status (Travis-ci | Coveralls | Code Climate)
 [![Build Status](https://travis-ci.com/chunkingz/fieldGiphy.svg?branch=develop)](https://travis-ci.com/chunkingz/fieldGiphy)
-[![Coverage Status](https://coveralls.io/repos/github/chunkingz/fieldGiphy/badge.svg?branch=develop)](https://coveralls.io/github/chunkingz/fieldGiphy?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/chunkingz/fieldGiphy/badge.svg?branch=develop)](https://coveralls.io/github/chunkingz/fieldGiphy?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/d394fdad21312db984b8/maintainability)](https://codeclimate.com/github/chunkingz/fieldGiphy/maintainability)
 
 `Why fieldGiphy ?`
 > When a user/visitor needs to tweet a gif to illustrate his/her feelings on something, they can just enter some text into the tool and get an awesome gif which can be dropped into a tweet quickly.
