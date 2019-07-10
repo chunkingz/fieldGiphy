@@ -2,11 +2,10 @@
 /* eslint-disable no-unused-vars */
 
 import express from 'express';
-import 'babel-polyfill';
 import path from 'path';
 import consolidate from 'consolidate';
 import bodyParser from 'body-parser';
-import router from './routes/index';
+import router from './routes/routes';
 
 const app = express();
 app.engine('dust', consolidate.dust);
