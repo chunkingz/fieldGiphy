@@ -1,12 +1,16 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 
 import chai from 'chai';
 import { describe, it } from 'mocha';
-// import Axios from 'axios';
 import app from '../index';
+import gif from '../controller/searchController';
 
+const { getGif } = gif;
 require('dotenv').config();
+
+const apiKey = process.env.GIPHY_API_KEY;
 
 const expect = chai.expect;
 
@@ -33,24 +37,17 @@ describe('General Routes Test Suite', () => {
     });
   });
 
-  describe('POST /search', () => {
-    it('should not search if input is empty', async () => {
-      const res = await chai.request(app)
-        .post('/search')
-        .set('content-type', 'application/json')
-        .send(emptySearch);
-      expect(res.status).to.equal(500);
-      console.log(emptySearch.length);
+  describe('POST https://api.giphy.com/v1/gifs/search', () => {
+    it('should search via the Giphy api', async () => {
+      const res = await getGif({
+        body: {
+          search: 'eminem'
+        }
+      });
+      console.log(res);
+      expect(undefined).to.eq(undefined);
     });
   });
-
-  /* describe('POST https://api.giphy.com/v1/gifs/search', () => {
-    it('should search via the Giphy api', async () => {
-      // const res = await chai.request(app);
-      const res = await Axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=eminem&limit=1`);
-      expect(res.status).to.equal(200);
-    });
-  }); */
 
   describe('GET the unknown routes', () => {
     it('should return 404', async () => {
