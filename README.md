@@ -36,4 +36,4 @@ You can view bugs/issues [here](https://github.com/chunkingz/fieldGiphy/issues)
 - dotenv [environment variables]
 
 # Developer
-Fortune King :bowtie:
+chunkingz :bowtie:
